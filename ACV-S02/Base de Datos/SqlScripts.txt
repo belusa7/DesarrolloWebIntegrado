@@ -1,0 +1,16 @@
+SELECT 
+cita.codigoCita,
+mascota.codigoMascota,
+mascota.nombre AS nombreMascota,
+cliente.codigoCliente,
+CONCAT(cliente.nombres, ", ", cliente.apellidos) AS nombreCliente,
+servicio.codigoServicio,
+servicio.nombre AS nombreServicio,
+usuario.codigoUsuario,
+usuario.nombreUsuario,
+cita.fecha,
+cita.estado
+FROM cita  INNER JOIN mascota ON cita.codigoMascota = mascota.codigoMascota
+INNER JOIN servicio ON cita.codigoServicio = servicio.codigoServicio
+INNER JOIN usuario ON cita.codigoUsuario = usuario.codigoUsuario
+INNER JOIN cliente ON mascota.codigoCliente = cliente.codigoCliente
